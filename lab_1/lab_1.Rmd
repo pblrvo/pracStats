@@ -1,0 +1,307 @@
+---
+title: "Lab 1: introducción a R y a la estadística descriptiva"
+subtitle: nombres de los autores  
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Objetivos de la práctica
+Esta práctica tiene como principales objetivos:
+    
+* Familiarizarse con el lenguaje `R`.
+* Familiarizarse con el cálculo de estadísticos resumen.
+* Aprender a realizar gráficos estadísticos que resalten las características
+más importantes de los datos.
+
+Aunque es posible familiarizarse con `R` a través de la resolución de los 
+ejercicios de esta práctica, es altamente recomendable (pero no obligatorio) 
+seguir al menos un tutorial de `R` para tener una panorámica del lenguaje:
+
+* <https://github.com/constantino-garcia/impatient_r>.
+* <http://www.sas.rochester.edu/psc/thestarlab/help/rcourse/R-Course.pdf>.
+* <https://www.datacamp.com/courses/free-introduction-to-r>.
+* <https://www.isid.ac.in/~deepayan/R-tutorials/>.
+* <https://strata.uga.edu/software/pdf/Rtutorial.pdf>.
+
+# Entrega y evaluación 
+El deadline para la entrega de la práctica se indica en el campus virtual. 
+Cualquier trabajo recibido **fuera del plazo contará como no entregado**. La 
+entrega consistirá en:
+
+* Un solo fichero de R Markdown con extensión `*.Rmd`. 
+* El HTML o pdf que resulte de compilar el `*.Rmd`.
+
+Las prácticas que no cumplan el formato de entrega no serán evaluadas 
+completamente. En concreto:
+    
+* Un ejercicio en `*.Rmd` que no se ejecuta correctamente: no será evaluado.
+* Dos ejercicios que no se ejecuten correctamente implican el suspenso de la
+práctica.
+  
+
+# Caso práctico: supervivientes del Titanic
+En esta práctica, como guía para profundizar en el estudio de `R` y la estadística
+descriptiva, responderemos algunas preguntas relativas a qué factores afectaron 
+a la probabilidad de supervivencia en el hundimiento del Titanic. Es decir,
+responderemos preguntas del tipo: ¿Es cierto que los pasajeros de tercera clase
+tuvieron una tasa de supervivencia menor que los de primera clase?, ¿se aplicó
+la política de salvamento "mujeres y niños primero"?, etc.
+
+Lo primero que debemos hacer es cargar los datos: 
+```{r, cache=TRUE}
+data = read.csv('data/Titanic.csv')
+str(data)
+```
+El significado de las variables se muestra a continuación:
+
+| Variable | Definición  | Significado  |
+|---|---|---|
+| Survived  | ¿Sobrevivió al naufragio?  | 0 = No, 1 = Sí  |
+| Pclass | categoría del ticket  | 1 = 1ª, 2 = 2ª, 3 = 3ª  |
+| Sex  | Sexo  |   |
+| Age  | Edad |   |
+| SibSp  | Número de hermanos/cónyugues (siblings/spouses) a bordo del Titanic  |   |
+| Parch  | Número de padres/hijos (parents/children) a bordo del Titanic |   |
+| Ticket  | Nº del ticket |   |
+| Fare  |  Precio del ticket |   |
+| Cabin  | Número del camarote  |   |
+| Embarked  | Puerto de embarque  | C = Cherbourg, Q = Queenstown, S = Southampton |
+
+### Ejercicio: Tasa total de supervivencia
+Calcula la proporción de pasajeros que sobrevivieron al naufragio. La fórmula 
+para el cálculo sería:
+$$\frac{\text{nº de viajeros que sobrevivieron}}{\text{nº total de viajeros}}.$$
+Haz el código tan simple como sea posible sin comprometer su legibilidad. Guarda
+el resultado en la variable `p_survival`. En este ejercicio no está permitido 
+usar la función `table` ni `prop.table`.
+
+```{r}
+# Modify this
+p_survival = 0
+```
+
+### Ejercicio: tasa de supervivencia por clase
+Escribe una función que te ayude a calcular la proporción de pasajeros que 
+sobrevivieron para cada una de las clases. El resultado debe ser un vector de
+longitud 3 llamada `p_survival_class`. ¡Evita la replicación de código 
+(o el ejercicio no contará como correcto)!  En este ejercicio no está permitido 
+usar la función `table` ni `prop.table`.
+
+```{r}
+# Modify this
+p_survival_class = 0
+```
+
+
+### Ejercicio: tabla de contingencia
+Aunque en los ejercicios anteriores hayas empleado tu propio código
+para calcular la tasa de supervivencia por clase, `R` permite 
+calcular el número de ocurrencias por categoría empleando la función `table`. 
+El nombre de la función se debe a que generalmente llamamos **tabla de contingencia**
+a la tabla resultante. Además, también es posible calcular proporciones a partir
+de la tabla de contingencia usando la función `prop.table`. Emplea las funciones
+`table` y `prop.table` para calcular de nuevo la tasa de supervivencia por clase 
+(aprovecha para comprobar si tu implementación en el ejercicio anterior es 
+correcta). El vector resultante debe tener longitud 3 y llamarse `p_survival_class_2`.
+Consejo: mira la ayuda de `prop.table` para calcular la proporción por clase.
+
+```{r}
+# Modify this
+p_survival_class_2 = 0
+```
+
+### Ejercicio: representando la tasa de supervivencia por clase
+Los **gráficos de barras** nos permiten representar visualmente **datos categóricos**
+(ver aclaración al final de este ejercicio acerca de este concepto) con barras 
+rectangulares cuya altura/longitud  representan la frecuencia de cada una de las 
+categorías válidas. 
+
+ 1. Usa la función `barplot` para representar  la tasa de supervivencia por clase. 
+ Para que el gráfico sea legible, es fundamental que pongas un título y des nombres a los ejes.
+ 2. Responde, usando el gráfico obtenido y razonando adecuadamente, si la clase 
+ en la que viajaban los pasajeros afectó a la probabilidad de supervivencia. En
+ caso afirmativo, explica cómo afectó.
+
+```{r}
+# Your code here
+```
+
+*Contesta aquí al punto 2.*
+
+Antes de pasar al siguiente ejercicio, es interesante aclarar el concepto de
+**datos categóricos**, también llamados **factores**. Decimos que un dato es 
+categórico si los valores que puede tomar pertenecen a un conjunto finito de 
+valores (a veces llamados **niveles**). Ejemplos de variables categóricas en los
+datos de Titanic serían  `Sex` (que en este dataset solo puede  tomar los valores 
+`male` y `female`; decimos por tanto que `male` y `female` son los niveles de 
+`Sex`) o `Survived`  (cuyos niveles son `0` y `1`). 
+
+En `R`, la función `factor` nos permite especificar que una variable debe ser 
+tratada como categórica. En el futuro, está función nos será muy útil.
+
+### Ejercicio: impacto del sexo en la probabilidad de supervivencia.
+Basándote en los ejercicios anteriores, escribe el código necesario para analizar
+el impacto del sexo en la probabilidad de supervivencia. No olvides detallar tus
+conclusiones.
+
+```{r}
+# Your code here
+```
+
+*Detalla aquí tus conclusiones.*
+
+### Ejercicio: Grupos de edad en el Titanic
+En este ejercicio daremos el primer paso para estudiar el número de supervivientes
+en función del grupo de edad. La novedad es que en lugar de tratar a la edad
+como una variable categórica la trataremos como una **variable continua**. Una 
+variable continua se asume que puede tomar infinitos valores de forma continua, 
+por lo que estaríamos asumiendo que, por ejemplo, las siguientes edades son 
+válidas: 1.3 años, 1.33333 años, 1.0 años, etc. Además, no nos tenemos que 
+preocupar acerca de definir una edad máxima. (En este ejercicio, el principal motivo
+para hacer esta asunción es didáctico, así que no te preocupes si tú hubieses
+tratado a la edad como categórica).
+
+El principal problema con las variables continuas es que no podemos contar las 
+ocurrencias para cada valor (dado que posiblemente todos los valores son distintos;
+piensa en el ejemplo de 1.3 y 1.33333 años, donde tendríamos que considerarlos 
+como casos diferentes). Para resolver el problema, generalmente agrupamos varios
+valores en rangos razonables. Por ejemplo, podríamos agrupar a los niños pequeños
+en el rango de [0-10] años y luego contar el número de casos que caen en este 
+intervalo (fíjate que esto tiene cierto sentido para nuestro análisis
+de datos; durante el hundimiento del Titanic es muy probable que se tratase de
+forma similar a un niño de 3 años y a un niño de 4).
+
+Como primer paso para contar el número de supervivientes por grupos de edad, 
+estudiaremos en primer lugar cuánta gente había en el Titanic en función de 
+su edad. Generalmente, nos referimos a esto como 
+**la distribución de los datos para la variable edad**. Crea una función `count_by_age(data, lower, upper)` 
+que cuente el número de pasajeros con una edad comprendida entre $(lower, upper]$.
+¡Ojo! Fíjate que el intervalo pedido es semi-abierto por la izquierda.
+
+Una vez hayas creado tu función, aplícala a los datos para contar el número de
+pasajeros en los grupos $[0, 10]$, $(10, 20]$, $(20, 30]$, ... (ojo con el primer
+grupo). ¡Evita replicar código!
+
+```{r}
+# your code here
+```
+
+### Ejercicio: histograma de la edad
+Aunque el anterior ejercicio te ha permitido practicar con `R`, lo cierto es 
+que hay una forma más fácil de obtener los mismos resultados, ¡obteniendo además
+una representación gráfica de los mismos! Esta representación es conocida como
+**histograma**. Se pide:
+
+1. Usa la función `hist` para contar el número de pasajeros por edades
+(deberías obtener un vector con el mismo resultado del ejercicio anterior).
+2. Interpreta el gráfico obtenido. 
+3. ¿Qué hace el argumento `breaks`? Prueba distintos valores y discute su influencia
+en la representación final de los datos.
+
+```{r}
+# your code here
+```
+
+*Tus explicaciones, aquí*
+
+### Ejercicio: estadísticos descriptivos
+El histograma del ejercicio anterior nos permite responder algunas preguntas 
+interesantes. Por ejemplo:  ¿Cuál era la edad media de los pasajeros?, 
+¿cuál es el grupo de edad más frecuente?, ¿había mucha dispersión en cuanto a las
+edades de los pasajeros? Alternativamente, todas estas preguntas se pueden responder con un número
+que resume cierto aspecto interesante de los datos. Es por ello que suelen denominarse
+**estadísticos resumen** o **estadísticos descriptivos**. 
+
+Veamos cómo usar `R` para responder a estas preguntas. 
+
+1. ¿Cuál era la edad media de los pasajeros? Lo que buscamos conocer con la respuesta
+a esta pregunta es en torno a qué punto se concentran los datos. Por ello, la media
+es una medida de **tendencia central**. La media se puede calcular con
+$$\bar{x} = \frac{x_1 + x_2 + \dots + x_n}{n},$$
+pero `R` proporciona la función `mean`. Usa esta función para 
+calcular la edad media de los pasajeros (posiblemente tengas que consultar la 
+ayuda para obtener un resultado numérico válido).
+2. Otra medida de tendencia central es la **mediana**. La mediana es el valor que
+queda justo en medio de todos los datos (por tanto, el número de datos a la 
+izquierda de la mediana y el número de datos a la derecha de la mediana son 
+iguales). Usa la función `median` para calcular la mediana.
+3. ¿Cuál es el grupo de edad más frecuente? El valor más frecuente de una
+distribución es la **moda** (fíjate que el nombre está muy bien puesto). Para hallar
+la moda tendrás que implementar tu propia función `get_age_mode(x)`. Esta función
+debe devolver un `character` correspondiente al grupo de edad más frecuente (Por 
+ejemplo, `"(10, 20]"`). Apóyate en los resultados que devuelve la función `hist` 
+para buscar el grupo de edades más frecuente. Consejo: no te olvides de llamar a la
+función después de definirla.
+4. ¿Había mucha dispersión en cuanto a las edades de los pasajeros? Lo que queremos
+saber con esta pregunta es si los datos están muy concentrados en torno a la media
+(por ejemplo, en una residencia universitaria habrá poca dispersión porque sus
+residentes estarán, en su mayoría, entre los 18 y los 24 años) o todo lo contrario
+(considera, por ejemplo, los espectadores de un partido de fútbol). Dos 
+**medidas de dispersión** típicas son la **varianza** y la **dispersión típica** 
+(o desviación estándar). La varianza y la dispersión típica están relacionadas, 
+ya que $$\text{varianza}=\text{desviación-típica}^2.$$ 
+Por tanto, algo muy importante
+a tener en cuenta es que la varianza no tendrá las mismas unidades que los datos. Por
+ejemplo, si nuestros datos se miden en $Kg$, su varianza tendrá unidades de $Kg^2$.
+Usa las funciones `var` y `sd` para caracterizar la dispersión de las edades, 
+indicando claramente en qué unidades se mide cada estadístico resumen.
+
+```{r}
+# Part 1)
+```
+
+```{r}
+# Part 2)
+```
+
+```{r}
+# Part 3)
+```
+
+```{r}
+# Part 4)
+```
+
+
+### Ejercicio: Grupos de edad por clase.
+Exploremos ahora si la distrución de las edades era igual entre
+las distintas clases o si había diferencias. Por ejemplo, quizás podríamos esperar
+que los pasajeros de primera clase fuesen un poco mayores que en el resto de clases
+(la gente joven rara vez tiene mucho dinero). Para indagar sobre esto, emplea
+un gráfico basado en **boxplots** que dibuje la distribución de la edad para 
+cada una de las clases.
+
+```{r boxplot}
+# your code here
+```
+
+Interpreta los boxplot obtenidos. ¿Qué conclusiones podemos sacar?
+
+*Tus conclusiones, aquí*
+
+### Ejercicio: tasa de supervivencia en función de la edad.
+Finalmente, estudiaremos la tasa de supervivencia en función de la edad. Para ello, 
+emplearemos la función `table` para hacer una tabla de contingencia de supervivencia
+Vs edad, y luego usaremos la función `barplot`. El único problema es que, antes 
+de usar la función `table`, deberíamos crear los distintos grupos de edades.
+Sigue los siguientes pasos:
+
+1. Para discretizar un vector en grupos de rangos podemos emplear la función 
+`cut`. Usa la función `cut` para crear una nueva variable en el data.frame llamada
+`group_age`. Usa intervalos de 10 como en los ejemplos anteriores.
+2. Emplea la función `table` para crear la tabla de contingencia.
+3. Emplea `prop.table` sobre la tabla de contingencia para 
+calcular, *dentro de cada grupo de edad*, la proporción de supervivientes (fíjate
+en el argumento `margin`). Por ejemplo, queremos saber la proporción de niños entre
+los [0-10] años que sobrevivieron.
+4. Usa `barplot` para obtener una representación gráfica de las proporciones. 
+Añade nombres a los ejes, una leyenda e interpreta los resultados. 
+
+```{r}
+# your code here
+```
+
+*Tus conclusiones, aquí*
