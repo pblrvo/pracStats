@@ -161,7 +161,11 @@ el impacto del sexo en la probabilidad de supervivencia. No olvides detallar tus
 conclusiones.
 
 ```{r}
-# Your code here
+dataSex_sup = data[, c(1, 2, 5)]
+data_sex = table(dataSex_sup$Survived, data$Sex, dnn = c('Sex', 'Survived'))
+p_survival_class_2 = prop.table(data_sex, margin = 2)
+p_survival_class_2
+barplot(p_survival_class_2, legend.text=c('Muertos', 'Vivos'), col=c('Red', 'Blue'))
 ```
 
 *Detalla aquí tus conclusiones.*
@@ -314,7 +318,7 @@ los [0-10] años que sobrevivieron.
 Añade nombres a los ejes, una leyenda e interpreta los resultados. 
 
 ```{r}
-# your code here
+
 ```
 
 *Tus conclusiones, aquí*
