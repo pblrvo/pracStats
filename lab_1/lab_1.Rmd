@@ -80,7 +80,9 @@ usar la función `table` ni `prop.table`.
 
 ```{r}
 # Modify this
-p_survival = 0
+p_survival = sum(data$Survived)
+tasa_supervivencia = p_survival/max(data$PassengerId)
+tasa_supervivencia
 ```
 
 ### Ejercicio: tasa de supervivencia por clase
