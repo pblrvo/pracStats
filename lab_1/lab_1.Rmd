@@ -203,7 +203,16 @@ pasajeros en los grupos $[0, 10]$, $(10, 20]$, $(20, 30]$, ... (ojo con el prime
 grupo). ¡Evita replicar código!
 
 ```{r}
-# your code here
+count_by_age = function(data, lower, upper){
+  data = data[data$Age >= lower & data$Age <= upper, ]
+  new_data = data[is.na(data$Age) == FALSE, ]
+  survived = sum(new_data$Survived)
+  survived
+  }
+
+count_by_age(data, 0, 10)
+count_by_age(data, 10, 20)
+count_by_age(data, 20, 30)
 ```
 
 ### Ejercicio: histograma de la edad
