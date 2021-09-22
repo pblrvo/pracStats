@@ -79,7 +79,6 @@ el resultado en la variable `p_survival`. En este ejercicio no está permitido
 usar la función `table` ni `prop.table`.
 
 ```{r}
-# Modify this
 p_survival = sum(data$Survived)
 tasa_supervivencia = p_survival/max(data$PassengerId)
 tasa_supervivencia
@@ -93,8 +92,17 @@ longitud 3 llamada `p_survival_class`. ¡Evita la replicación de código
 usar la función `table` ni `prop.table`.
 
 ```{r}
-# Modify this
-p_survival_class = 0
+nombres_clases = c('Clase 1', 'Clase 2', 'Clase 3')
+survivals_clases = c()
+funcion_proporcionClase = function(clase){
+  data_class = data[data$Pclass == clase, ]
+  supervivientes = sum(data_class$Survived)/nrow(data_class)
+}
+for (i in 1:3){
+  survivals_clases = c(survivals_clases, funcion_proporcionClase(i))
+}
+names(survivals_clases) = nombres_clases
+survivals_clases
 ```
 
 
@@ -111,8 +119,9 @@ correcta). El vector resultante debe tener longitud 3 y llamarse `p_survival_cla
 Consejo: mira la ayuda de `prop.table` para calcular la proporción por clase.
 
 ```{r}
-# Modify this
-p_survival_class_2 = 0
+data3 = table(data$Pclass, data$Survived, dnn = c('Pclass', 'Survived'))
+p_survival_class_2 = prop.table(data3, margin = 1)
+p_survival_class_2
 ```
 
 ### Ejercicio: representando la tasa de supervivencia por clase
@@ -128,7 +137,9 @@ categorías válidas.
  caso afirmativo, explica cómo afectó.
 
 ```{r}
-# Your code here
+data3 = table(data$Survived, data$Pclass, dnn = c('Pclass', 'Survived'))
+p_survival_class_2 = prop.table(data3, margin = 2)
+barplot(p_survival_class_2, legend.text=c('Muertos', 'Vivos'), col=c('Red', 'Blue'))
 ```
 
 *Contesta aquí al punto 2.*
