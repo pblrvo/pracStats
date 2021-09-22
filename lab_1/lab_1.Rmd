@@ -143,6 +143,11 @@ barplot(p_survival_class_2, legend.text=c('Muertos', 'Vivos'), col=c('Red', 'Blu
 ```
 
 *Contesta aquí al punto 2.*
+Tal y como se ve en el gráfico, dependió mucho en que clase viajaba cada pasajero.
+Ajustándonos únicamente al gráfico sin saber los resultados al milímetro, tenemos como conclusión,
+que de los viajeros de la clase 1, casi falleció un cuarto de la gente. Los que viajaban en la clase 2,
+podríamos decir que murireron algo mas de la mitad de los pasajeros. Y por último, sobre los viajeros de la clase 3, podríamos decir que solo sobrevivió el un poco más del veinte porcierto de las personas que viajaban en dicha clase.
+
 
 Antes de pasar al siguiente ejercicio, es interesante aclarar el concepto de
 **datos categóricos**, también llamados **factores**. Decimos que un dato es 
@@ -169,6 +174,7 @@ barplot(p_survival_class_2, legend.text=c('Muertos', 'Vivos'), col=c('Red', 'Blu
 ```
 
 *Detalla aquí tus conclusiones.*
+Como podemos observar en el gráfico de barras de la parte superior, el porcentaje de mujeres que sobrevivieron es mucho mayor al de los hombres. En el case de las mujeres alrededor de un 75% de las mujeres que embarcaron consiguieron sobrevivir a la catástrofe, mientras que el de hombres que sobrevivieron apenas llega al 20%. Esto puede deberse a que los hombres cedieron su posibilidad de sobrevivir a sus esposas o hijas.
 
 ### Ejercicio: Grupos de edad en el Titanic
 En este ejercicio daremos el primer paso para estudiar el número de supervivientes
