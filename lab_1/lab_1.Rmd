@@ -214,11 +214,12 @@ count_by_age = function(data, lower, upper){
   new_data = data[is.na(data$Age) == FALSE, ]
   survived = sum(new_data$Survived)
   survived
-  }
-
-count_by_age(data, 0, 10)
-count_by_age(data, 10, 20)
-count_by_age(data, 20, 30)
+}
+intervalos = seq(0, 80, by=10)
+vector = c()
+for (i in intervalos){
+  vector = c(vector, count_by_age(data, i, i+10))
+}
 ```
 
 ### Ejercicio: histograma de la edad
@@ -234,7 +235,7 @@ una representación gráfica de los mismos! Esta representación es conocida com
 en la representación final de los datos.
 
 ```{r}
-# your code here
+survived = data
 ```
 
 *Tus explicaciones, aquí*
