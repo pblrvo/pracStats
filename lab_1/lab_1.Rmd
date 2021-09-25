@@ -236,6 +236,9 @@ en la representación final de los datos.
 
 ```{r}
 survived = data
+hist(x = data$Age, col = "Green", ylim= c(0,300), main = "Histograma de Edad", xlab = "Edad", ylab = "Frecuencia")
+
+hist(x = data$Age, col = "Green", ylim= c(0,300), main = "Histograma de Edad", xlab = "Edad", ylab = "Frecuencia", breaks = 12)
 ```
 
 *Tus explicaciones, aquí*
