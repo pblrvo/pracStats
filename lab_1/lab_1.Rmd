@@ -286,7 +286,7 @@ Usa las funciones `var` y `sd` para caracterizar la dispersión de las edades,
 indicando claramente en qué unidades se mide cada estadístico resumen.
 
 ```{r}
-# Part 1)
+mean(data$Age, na.rm = TRUE)
 ```
 
 ```{r}
