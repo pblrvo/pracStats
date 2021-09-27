@@ -215,6 +215,7 @@ count_by_age = function(data, lower, upper){
   survived = sum(new_data$Survived)
   survived
 }
+
 intervalos = seq(0, 80, by=10)
 vector = c()
 for (i in intervalos){
@@ -290,11 +291,13 @@ mean(data$Age, na.rm = TRUE)
 ```
 
 ```{r}
-# Part 2)
+median(data$Age, na.rm = TRUE)
 ```
 
 ```{r}
-# Part 3)
+get_age_mode = function(data){
+  
+}
 ```
 
 ```{r}
@@ -311,7 +314,7 @@ un gráfico basado en **boxplots** que dibuje la distribución de la edad para
 cada una de las clases.
 
 ```{r boxplot}
-# your code here
+boxplot(Age ~ Pclass, data = data, horizontal = TRUE, col = "Green")
 ```
 
 Interpreta los boxplot obtenidos. ¿Qué conclusiones podemos sacar?
@@ -337,6 +340,7 @@ los [0-10] años que sobrevivieron.
 Añade nombres a los ejes, una leyenda e interpreta los resultados. 
 
 ```{r}
+group_age = cut()
 
 ```
 
