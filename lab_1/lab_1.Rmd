@@ -340,8 +340,19 @@ los [0-10] años que sobrevivieron.
 Añade nombres a los ejes, una leyenda e interpreta los resultados. 
 
 ```{r}
-group_age = cut()
 
+group_age = seq(-10, 70, by=10)
+vector = c()
+for (i in group_age){
+  vector = c(vector, i+ 10)
+}
+intervalos_edades = cut(data$Age, breaks = vector, na.rm = TRUE)
+intervalos_edades 
+tabla = table(intervalos_edades)
+tabla
+proporcion_supervivientes = prop.table(tabla)
+proporcion_supervivientes
+barplot(proporcion_supervivientes, legend.text=c('Supervivientes'), col=c('Blue'))
 ```
 
 *Tus conclusiones, aquí*
