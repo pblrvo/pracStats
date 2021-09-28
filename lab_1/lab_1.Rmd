@@ -325,6 +325,8 @@ Interpreta los boxplot obtenidos. ¿Qué conclusiones podemos sacar?
 
 *Tus conclusiones, aquí*
 
+Podemos observar que el grupo de edad de los pasajeros que viajaron en primera es mucho mas amplio (contiene mas variedad de edades) que los grupos que viajan en tercera o segunda. Tambien podemos observar que la media de edad de los pasajeros que viajaban en primera rondaba los 40 años, mientras que la de los viajeros que contrataron un pase de tercera o segunda ronda los 25 años. Esto puede deberse a que raramente encontramos a alguien joven con una capacidad economica suficiente como para poder permitirse un viaje en primera clase en un crucero, probablemente porque han empezado a trabajar hace escasos años y estan atosigados por hipotecas de coche, casa, etc.
+
 ### Ejercicio: tasa de supervivencia en función de la edad.
 Finalmente, estudiaremos la tasa de supervivencia en función de la edad. Para ello, 
 emplearemos la función `table` para hacer una tabla de contingencia de supervivencia
