@@ -244,6 +244,10 @@ hist(x = data$Age, col = "Green", ylim= c(0,300), main = "Histograma de Edad", x
 
 *Tus explicaciones, aquí*
 
+2. El gráfico obtenido muestra que la mayoria de pasajeros que viajaban en el titanic se encontraba en el grupo de edad de entre 20-40 años, siendo el grupo de edad con mas pasajeros el de 20-25 años contando con unas 150 ocurrencias.
+
+3. El argumento breaks modifica el numero de barras que se mostrarán en el gráfico de forma que cuanto mayor sea el valor que le demos al argumento, mayor será el numero de barras que se muestren.
+
 ### Ejercicio: estadísticos descriptivos
 El histograma del ejercicio anterior nos permite responder algunas preguntas 
 interesantes. Por ejemplo:  ¿Cuál era la edad media de los pasajeros?, 
