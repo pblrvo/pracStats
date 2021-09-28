@@ -362,3 +362,5 @@ barplot(proporcion_supervivientes, legend.text=c('Supervivientes'), col=c('Blue'
 ```
 
 *Tus conclusiones, aquí*
+
+Podemos observar que el grupo de edad con mayor numero de supervivientes fue el de los 20-30 años, esto es entendible ya que como observamos en ejercicios anteriores el rango de edad que agrupaba mas pasajeros era este mismo. En general el numero de supervivientes por edad esta directamente relacionado con el numero de pasajeros de su rango de edad.
