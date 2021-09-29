@@ -221,6 +221,8 @@ vector = c()
 for (i in intervalos){
   vector = c(vector, count_by_age(data, i, i+10))
 }
+vector
+table(vector, intervalos)
 ```
 
 ### Ejercicio: histograma de la edad
@@ -299,13 +301,19 @@ median(data$Age, na.rm = TRUE)
 ```
 
 ```{r}
-get_age_mode = function(data){
-  
+group_age = seq(-10, 70, by=10)
+vector = c()
+for (i in group_age){
+  vector = c(vector, i+ 10)
 }
+intervalos_edades = cut(data$Age, breaks = vector, na.rm = TRUE)
+tabla = table(intervalos_edades)
+which.max(tabla)
 ```
 
 ```{r}
-# Part 4)
+var(data$Age, na.rm = TRUE)# años al cuadrado
+sd(data$Age, na.rm = TRUE)#años
 ```
 
 
@@ -353,11 +361,8 @@ for (i in group_age){
   vector = c(vector, i+ 10)
 }
 intervalos_edades = cut(data$Age, breaks = vector, na.rm = TRUE)
-intervalos_edades 
 tabla = table(intervalos_edades)
-tabla
 proporcion_supervivientes = prop.table(tabla)
-proporcion_supervivientes
 barplot(proporcion_supervivientes, legend.text=c('Supervivientes'), col=c('Blue'))
 ```
 
