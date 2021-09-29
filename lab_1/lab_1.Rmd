@@ -1,6 +1,6 @@
 ---
 title: "Lab 1: introducción a R y a la estadística descriptiva"
-subtitle: nombres de los autores  
+subtitle: ALberto Daguerre, Joaquín Moreno y Pablo Rivero  
 output: html_document
 ---
 
